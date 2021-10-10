@@ -12,9 +12,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// Sets up the routes
-app.use(routes);
-
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/" + process.env.DB_NAME,
     {
@@ -22,6 +19,9 @@ mongoose.connect(
         useFindAndModify: false,
     }
 );
+
+// Sets up the routes
+app.use(routes);
 
 app.listen(PORT, () => {
     console.log(`Running at: http://localhost:${PORT}`);
