@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -14,11 +15,14 @@ app.use(express.static("public"));
 // Sets up the routes
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness_db", {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-});
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/" + process.env.DB_NAME,
+    {
+        useNewUrlParser: true,
+        useFindAndModify: false,
+    }
+);
 
 app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}!`);
+    console.log(`Running at: http://localhost:${PORT}`);
 });
