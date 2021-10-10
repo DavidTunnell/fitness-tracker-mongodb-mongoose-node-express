@@ -3,8 +3,7 @@ const { Workout } = require("../models");
 
 //api routes go here
 router.get("/workouts", (req, res) => {
-    console.log(Workout);
-    Workout.find({})
+    Workout.findOne({}, {}, { sort: { day: -1 } })
         .then((dbTransaction) => {
             res.json(dbTransaction);
         })
