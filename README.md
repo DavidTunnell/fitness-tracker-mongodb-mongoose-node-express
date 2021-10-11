@@ -16,7 +16,7 @@ When the user loads the page, they should be given the option to create a new wo
 
 The user should be able to:
 
-  * Add exercises to the most recent workout plan.
+  * Add exercises to the most recent workout plan. (CHECK)
 
   * Add new exercises to a new workout plan.
 

@@ -27,15 +27,15 @@ router.put("/workouts/:id", (req, res) => {
     );
 });
 
-//create a workout
-// router.post("/workouts", ({ body }, res) => {
-//     Workout.create(body)
-//         .then((dbTransaction) => {
-//             res.json(dbTransaction);
-//         })
-//         .catch((err) => {
-//             res.status(400).json(err);
-//         });
-// });
+// create a workout
+router.post("/workouts", (req, res) => {
+    Workout.create({ day: Date.now() }, function (error, success) {
+        if (error) {
+            res.status(400).json(error);
+        } else {
+            res.json(success);
+        }
+    });
+});
 
 module.exports = router;
