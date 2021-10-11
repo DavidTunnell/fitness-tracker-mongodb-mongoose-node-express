@@ -3,10 +3,13 @@ const { Workout } = require("../models");
 
 //get most recent workout
 router.get("/workouts", (req, res) => {
-    Workout.findOne({}, {}, { sort: { day: -1 } })
+    Workout.findOne({}, {}, { sort: { day: 1 } })
         .then((dbTransaction) => {
             const wo = new Workout(dbTransaction);
             wo.totalDuration = wo.getTotalDuration();
+            console.log("---------");
+            console.log(wo);
+            console.log("---------");
             res.json(wo);
         })
         .catch((err) => {
@@ -16,12 +19,17 @@ router.get("/workouts", (req, res) => {
 
 //get last 7 workouts for stats
 router.get("/workouts/range", (req, res) => {
-    //TODO:
-    //get past 7 days of workout documents
     Workout.find({})
+        .sort({ day: -1 })
         .limit(7)
         .then((dbTransaction) => {
-            res.json(dbTransaction);
+            const returnArray = [];
+            dbTransaction.forEach((element) => {
+                const wo = new Workout(element);
+                wo.totalDuration = wo.getTotalDuration();
+                returnArray.push(wo);
+            });
+            res.json(returnArray);
         })
         .catch((err) => {
             res.status(400).json(err);
