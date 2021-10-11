@@ -8,9 +8,6 @@ router.get("/workouts", (req, res) => {
         .then((dbTransaction) => {
             const wo = new Workout(dbTransaction);
             wo.totalDuration = wo.getTotalDuration();
-            console.log("---------");
-            console.log(wo);
-            console.log("---------");
             res.json(wo);
         })
         .catch((err) => {
