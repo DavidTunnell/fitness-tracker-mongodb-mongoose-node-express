@@ -3,7 +3,8 @@ const { Workout } = require("../models");
 
 //get most recent workout
 router.get("/workouts", (req, res) => {
-    Workout.findOne({}, {}, { sort: { day: 1 } })
+    Workout.findOne({})
+        .sort({ day: -1 })
         .then((dbTransaction) => {
             const wo = new Workout(dbTransaction);
             wo.totalDuration = wo.getTotalDuration();
