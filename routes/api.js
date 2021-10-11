@@ -14,6 +14,20 @@ router.get("/workouts", (req, res) => {
         });
 });
 
+//get last 7 workouts for stats
+router.get("/workouts/range", (req, res) => {
+    //TODO:
+    //get past 7 days of workout documents
+    Workout.find({})
+        .limit(7)
+        .then((dbTransaction) => {
+            res.json(dbTransaction);
+        })
+        .catch((err) => {
+            res.status(400).json(err);
+        });
+});
+
 //update a workout (add exercise to existing workout)
 router.put("/workouts/:id", (req, res) => {
     Workout.findOneAndUpdate(
