@@ -5,7 +5,9 @@ const { Workout } = require("../models");
 router.get("/workouts", (req, res) => {
     Workout.findOne({}, {}, { sort: { day: -1 } })
         .then((dbTransaction) => {
-            res.json(dbTransaction);
+            const wo = new Workout(dbTransaction);
+            wo.totalDuration = wo.getTotalDuration();
+            res.json(wo);
         })
         .catch((err) => {
             res.status(400).json(err);

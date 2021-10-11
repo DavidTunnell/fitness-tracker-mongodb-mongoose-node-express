@@ -18,7 +18,7 @@ The user should be able to:
 
   * Add exercises to the most recent workout plan. (CHECK)
 
-  * Add new exercises to a new workout plan.
+  * Add new exercises to a new workout plan. (CHECK)
 
   
 
