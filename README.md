@@ -1,6 +1,6 @@
 # Fitness Tracker - MongoDB, Mongoose, Node.js, Express.js
 
-A fitness tracker that allows for the creation of workouts and multiple associated exercises for them. Users can continue existing workouts and add exercises to them as well. This project is hosted using [Heroku](https://heroku.com/) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+A fitness tracker that allows for the creation of workouts and multiple associated exercises for them. Users can continue existing workouts and add exercises to them as well. This project's demo is hosted using [Heroku](https://heroku.com/) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
 [A live demo can be found here.](https://desolate-oasis-16495.herokuapp.com/)
 
