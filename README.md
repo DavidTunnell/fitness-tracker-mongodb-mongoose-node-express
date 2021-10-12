@@ -24,10 +24,10 @@ After cloning the repo to your system, run `npm i` at the project root to get th
 
 ![Dashboard](./assets/dashboard-screenshot.png)
 
-## Add Cardio Exercise to Workout
+### Add Cardio Exercise to Workout
 
 ![Add Cardio](./assets/add-cardio-exercise.png)
 
-## Add Resistance Exercise to Workout
+### Add Resistance Exercise to Workout
 
 ![Add Resistance](./assets/add-resistance-exercise.png)
